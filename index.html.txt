@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pan Tapicerka - Pranie Tapicerek</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        /* Popup Welcome */
+        #popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        #popup-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        #popup-content button {
+            background: #ff5f5f;
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        #popup-content button:hover {
+            background: #e04e4e;
+        }
+
+        /* Header */
+        header {
+            background-color: #0044cc;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        header img {
+            height: 50px;
+            vertical-align: middle;
+        }
+
+        /* Main Content */
+        main {
+            padding: 20px;
+        }
+
+        .images-section, .equipment-section {
+            margin: 20px 0;
+        }
+
+        .images-section img, .equipment-section img {
+            width: 100%;
+            max-width: 300px;
+            margin: 10px;
+        }
+
+        .equipment-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .equipment-section div {
+            flex: 1;
+            margin: 10px;
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            background: #0044cc;
+            color: white;
+            padding: 10px 20px;
+        }
+
+        /* Mobile Menu */
+        .menu {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            z-index: 999;
+        }
+
+        .menu div {
+            width: 30px;
+            height: 5px;
+            background-color: #333;
+            margin: 5px 0;
+        }
+
+        .menu-items {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            background: #0044cc;
+            color: white;
+            width: 250px;
+            height: 100%;
+            z-index: 998;
+            padding: 20px;
+        }
+
+        .menu-items a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div id="popup">
+    <div id="popup-content">
+        <p>Witamy w świecie prania tapicerek u Pana Tapicerki. Na stronie znajdziesz wszystkie potrzebne informacje aby zamówić u nas usługę.</p>
+        <button onclick="closePopup()">X</button>
+    </div>
+</div>
+
+<header>
+    <h1><img src="logo.png" alt="Pan Tapicerka"> Pan Tapicerka</h1>
+</header>
+
+<div class="menu" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+<div class="menu-items" id="menu-items">
+    <a href="#pricing">Cennik i oferta</a>
+    <a href="#contact">Kontakt</a>
+    <a href="#media">Media</a>
+</div>
+
+<main>
+    <section class="images-section">
+        <h2>Nasze realizacje</h2>
+        <img src="tapicerka1.jpg" alt="Czysta tapicerka">
+        <img src="tapicerka2.jpg" alt="Czysta tapicerka">
+    </section>
+
+    <section class="equipment-section">
+        <h2>Sprzęt, na którym pracujemy</h2>
+        <div>
+            <img src="karcher_pioracy.jpg" alt="Karcher odkurzacz piorący">
+            <p>Karcher odkurzacz piorący</p>
+        </div>
+        <div>
+            <img src="karcher_parowy.jpg" alt="Karcher odkurzacz parowy">
+            <p>Karcher odkurzacz parowy</p>
+        </div>
+        <div>
+            <img src="wkretarki.jpg" alt="Wkrętarki">
+            <p>Wkrętarki i szczotki</p>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>Nasza firma działa na terenie Trójmiasta</p>
+</footer>
+
+<script>
+    function closePopup() {
+        document.getElementById('popup').style.display = 'none';
+    }
+
+    function toggleMenu() {
+        const menu = document.getElementById('menu-items');
+        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    }
+</script>
+
+</body>
+</html>
